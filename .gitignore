@@ -3,3 +3,5 @@
 env/
 *_mask*
 .vscode
+.idea
+*.jpeg
