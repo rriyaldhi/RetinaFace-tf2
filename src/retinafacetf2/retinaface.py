@@ -111,6 +111,7 @@ class RetinaFace:
         start_time = time.time()
         net_out = self.model(im_tensor)
         net_out = [elt.numpy() for elt in net_out]
+        print(time.time() - start_time)
         sym_idx = 0
 
         for _idx, s in enumerate(self._feat_stride_fpn):
@@ -181,7 +182,6 @@ class RetinaFace:
         det = np.hstack( (pre_det, proposals[:,4:]) )
         det = det[keep, :]
         landmarks = landmarks[keep]
-        print(time.time() - start_time)
         return det, landmarks
 
     @staticmethod
