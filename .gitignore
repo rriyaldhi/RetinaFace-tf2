@@ -7,3 +7,4 @@ env/
 *.jpeg
 **/*/__pycache__
 .ipynb_checkpoints
+**/*/*.so
