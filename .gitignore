@@ -7,4 +7,6 @@ env/
 *.jpeg
 **/*/__pycache__
 .ipynb_checkpoints
-src/retinafacetf2/rcnn/pycocotools/*.so
+src/retinafacetf2/rcnn/pycocotools/_mask.cpython-36m-x86_64-linux-gnu.so
+src/retinafacetf2/rcnn/pycocotools/_mask.cpython-37m-x86_64-linux-gnu.so
+src/retinafacetf2/rcnn/pycocotools/_mask.cpython-38-x86_64-linux-gnu.so
