@@ -9,6 +9,8 @@ from .rcnn.processing.nms import gpu_nms_wrapper, cpu_nms_wrapper
 from .networks.retinaface_network import RetinaFaceNetwork
 from .utils.file_utils import *
 
+import time
+
 class RetinaFace:
     def __init__(self, use_gpu_nms=True, nms=0.4):
         self.model_weights = cached_path(LINKS["retinaface_weights"])
@@ -106,6 +108,7 @@ class RetinaFace:
         scores_list = []
         landmarks_list = []
         im_tensor, im_info, im_scale = self._preprocess_image(img)
+        start_time = time.time()
         net_out = self.model(im_tensor)
         net_out = [elt.numpy() for elt in net_out]
         sym_idx = 0
@@ -178,7 +181,7 @@ class RetinaFace:
         det = np.hstack( (pre_det, proposals[:,4:]) )
         det = det[keep, :]
         landmarks = landmarks[keep]
-
+        print(time.time() - start_time)
         return det, landmarks
 
     @staticmethod
