@@ -5,3 +5,4 @@ env/
 .vscode
 .idea
 *.jpeg
+**/*/__pycache__
